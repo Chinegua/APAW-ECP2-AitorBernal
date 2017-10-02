@@ -1,4 +1,4 @@
-package apiDoctor.entity;
+package apiDoctor;
 
 import java.util.Calendar;
 

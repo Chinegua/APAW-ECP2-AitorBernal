@@ -1,7 +1,5 @@
 package apiDoctor.http;
 
-import es.upm.miw.apaw.theme.api.Dispatcher;
-
 public class Server {
     private Dispatcher dispatcher = new Dispatcher();
 

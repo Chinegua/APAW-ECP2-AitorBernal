@@ -1,8 +1,5 @@
 package apiDoctor.builder;
-
-import citas.Appointmen;
-import citas.Doctor;
-import citas.Level;
+import apiDoctor.*;
 
 public class DoctorBuilder {
 

@@ -1,4 +1,4 @@
-package apiDoctor.entity;
+package apiDoctor;
 
 public enum Level {
 	BEGINNER, NORMAL, EXPERT

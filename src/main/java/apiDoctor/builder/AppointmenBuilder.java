@@ -1,8 +1,7 @@
 package apiDoctor.builder;
-
+import apiDoctor.*;
 import java.util.Calendar;
 
-import citas.Appointmen;
 
 public class AppointmenBuilder {
 
