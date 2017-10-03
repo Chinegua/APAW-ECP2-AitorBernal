@@ -1,5 +1,7 @@
 package apiDoctor.http;
 
+import apiDoctor.api.Dispatcher;
+
 public class Server {
     private Dispatcher dispatcher = new Dispatcher();
 
