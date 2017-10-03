@@ -7,7 +7,7 @@ import apiDoctor.http.HttpStatus;
 
 public class Dispatcher {
 	
-	DoctorResource doctorResource;
+	DoctorResource doctorResource = new DoctorResource();
 
 	private void responseError(HttpResponse response, Exception e) {
 		response.setBody("{\"error\":\"" + e + "\"}");
@@ -15,8 +15,10 @@ public class Dispatcher {
 	}
 
 	public void doPost(HttpRequest request, HttpResponse response) {
-		System.out.print("LLEGA AL DISPATCHER");
-	}
+        if (request.isEqualsPath(DoctorResource.DOCTORS)) {
+            doctorResource.createDoctor(request.getBody());
+            response.setStatus(HttpStatus.CREATED);
+        }	}
 	public void doPut(HttpRequest request, HttpResponse response) {
 		System.out.print(">>>");
 	}

@@ -7,10 +7,8 @@ public class DoctorResource {
 
 
 	public void createDoctor(String body) {
-		System.out.print("AAAA");
-
 		// TODO Auto-generated method stub
-		
 	}
+
 
 }
