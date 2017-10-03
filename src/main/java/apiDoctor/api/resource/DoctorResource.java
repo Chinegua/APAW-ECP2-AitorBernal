@@ -7,6 +7,7 @@ public class DoctorResource {
 
 
 	public void createDoctor(String body) {
+		
 		// TODO Auto-generated method stub
 	}
 
