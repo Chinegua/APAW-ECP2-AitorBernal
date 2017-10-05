@@ -19,8 +19,8 @@ public class Dispatcher {
 			if (request.isEqualsPath(DoctorResource.DOCTORS)) {
 				String id = request.getBody().split(":")[0];
 				String speciality = request.getBody().split(":")[1];
-				String cost = request.getBody().split(":")[2];
-				doctorResource.createDoctor(Integer.valueOf(id), speciality, Double.valueOf(cost));
+
+				doctorResource.createDoctor(Integer.valueOf(id), speciality);
 				response.setStatus(HttpStatus.CREATED);
 			}
 		} catch (
