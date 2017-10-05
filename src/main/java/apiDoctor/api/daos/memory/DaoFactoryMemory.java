@@ -1,29 +1,33 @@
 package apiDoctor.api.daos.memory;
 
 import apiDoctor.api.daos.AppointmenDao;
+
 import apiDoctor.api.daos.DaoFactory;
 import apiDoctor.api.daos.DoctorDao;
 
 public class DaoFactoryMemory extends DaoFactory {
 
-    private DoctorDao themeDao;
+    private DoctorDao doctorDao;
 
-    private AppointmenDao voteDao;
+    private AppointmenDao appointmenDao;
 
     @Override
     public DoctorDao getDoctorDao() {
-        if (themeDao == null) {
-            themeDao = new DoctorDaoMemory();
+
+        if (doctorDao == null) {
+
+        	doctorDao = new DoctorDaoMemory();
         }
-        return themeDao;
+
+        return doctorDao;
     }
 
     @Override
     public AppointmenDao getAppointmenDao() {
-        if (voteDao == null) {
-            voteDao = new AppointmenDaoMemory();
+        if (appointmenDao == null) {
+        	appointmenDao = new AppointmenDaoMemory();
         }
-        return voteDao;
+        return appointmenDao;
     }
 
 }

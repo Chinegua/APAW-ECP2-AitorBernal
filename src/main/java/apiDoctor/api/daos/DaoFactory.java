@@ -9,7 +9,9 @@ public abstract class DaoFactory {
     }
 
     public static DaoFactory getFactory() {
+
         assert factory != null;
+        System.out.println("<<<<<"+factory);
         return factory;
     }
 
