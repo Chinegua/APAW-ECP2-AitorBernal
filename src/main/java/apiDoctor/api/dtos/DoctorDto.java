@@ -10,8 +10,6 @@ public class DoctorDto {
     
     double cost;
 
-    public DoctorDto() {
-    }
 
     public DoctorDto(Doctor doctor) {
         id = doctor.getId();
@@ -27,17 +25,17 @@ public class DoctorDto {
         this.id = id;
     }
 
-    public String getName() {
+    public String getSpeciality() {
         return this.speciality;
     }
 
-    public void setName(String speciality) {
+    public void setSpeciality(String speciality) {
         this.speciality = speciality;
     }
 
     @Override
     public String toString() {
-        return "{\"id\":" + this.id + ",\"speciality\":\"" + this.speciality + ",\"cost\":\"" + this.cost +"\"}";
+        return "{\"id\":" + this.id + ",\"speciality\":\"" + this.speciality + "\",\"cost\":\"" + this.cost +"\"}";
     }
 
 }
