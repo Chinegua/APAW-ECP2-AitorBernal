@@ -1,10 +1,13 @@
 package apiDoctor.api.resource;
 
+import java.util.List;
+
+import apiDoctor.Doctor;
 import apiDoctor.api.controller.DoctorController;
-
-
+import apiDoctor.api.dtos.DoctorDto;
 import apiDoctor.api.resource.exceptions.DoctorIdInvalidException;
 import apiDoctor.api.resource.exceptions.DoctorSpecilityInvalidException;
+
 
 public class DoctorResource {
 
@@ -18,6 +21,12 @@ public class DoctorResource {
 		new DoctorController().createDoctor(id, speciality);
 
 	}
+    public static List<DoctorDto> DoctorList() {
+    	
+        return new DoctorController().themeList();
+    }
+    
+    
 
 	private void validateid(int id) throws DoctorIdInvalidException {
 		if (id <= 0) {
