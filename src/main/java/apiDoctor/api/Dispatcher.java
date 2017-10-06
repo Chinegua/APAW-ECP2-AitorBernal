@@ -1,6 +1,7 @@
 package apiDoctor.api;
 
 import apiDoctor.api.resource.DoctorResource;
+import apiDoctor.api.resource.exceptions.RequestInvalidException;
 import apiDoctor.http.HttpRequest;
 import apiDoctor.http.HttpResponse;
 import apiDoctor.http.HttpStatus;
@@ -22,6 +23,9 @@ public class Dispatcher {
 
 				doctorResource.createDoctor(Integer.valueOf(id), speciality);
 				response.setStatus(HttpStatus.CREATED);
+			} else {
+				throw new RequestInvalidException(request.getPath());
+
 			}
 		} catch (
 
@@ -38,7 +42,22 @@ public class Dispatcher {
 	}
 
 	public void doGet(HttpRequest request, HttpResponse response) {
-		System.out.print(">>>");
+		try {
+			if (request.isEqualsPath(DoctorResource.DOCTORS)) {
+				response.setBody(DoctorResource.DoctorList().toString());
+			} else {
+
+				throw new RequestInvalidException(request.getPath());
+
+			}
+
+		} catch (
+
+		Exception e)
+
+		{
+			responseError(response, e);
+		}
 	}
 
 	public void doPatch(HttpRequest request, HttpResponse response) {
