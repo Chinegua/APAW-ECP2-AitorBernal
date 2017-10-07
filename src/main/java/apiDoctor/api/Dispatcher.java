@@ -1,6 +1,7 @@
 package apiDoctor.api;
 
 import apiDoctor.api.resource.DoctorResource;
+
 import apiDoctor.api.resource.exceptions.RequestInvalidException;
 import apiDoctor.http.HttpRequest;
 import apiDoctor.http.HttpResponse;
@@ -45,7 +46,11 @@ public class Dispatcher {
 		try {
 			if (request.isEqualsPath(DoctorResource.DOCTORS)) {
 				response.setBody(DoctorResource.DoctorList().toString());
-			} else {
+			}else if(request.isEqualsPath(DoctorResource.DOCTORS + DoctorResource.ID_SPECIALITY)){
+				System.out.println(DoctorResource.doctorSpeciality(Integer.valueOf(request.paths()[1])).toSpeciality());
+
+			} 
+			else {
 
 				throw new RequestInvalidException(request.getPath());
 

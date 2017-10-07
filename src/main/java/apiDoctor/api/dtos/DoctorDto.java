@@ -32,10 +32,15 @@ public class DoctorDto {
     public void setSpeciality(String speciality) {
         this.speciality = speciality;
     }
+    
+    public String toSpeciality(){
+        return "{\"speciality\":\"" + this.speciality +"}";
+    }
 
     @Override
     public String toString() {
         return "{\"id\":" + this.id + ",\"speciality\":\"" + this.speciality + "\",\"cost\":\"" + this.cost +"\"}";
     }
+    
 
 }

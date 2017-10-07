@@ -2,7 +2,9 @@ package apiDoctor.api.controller;
 
 import java.util.ArrayList;
 
+
 import java.util.List;
+import java.util.Optional;
 
 import apiDoctor.Doctor;
 
@@ -15,7 +17,7 @@ public class DoctorController {
 		DaoFactory.getFactory().getDoctorDao().create(new Doctor(id,speciality));	
 	}
 
-	public List<DoctorDto> themeList() {
+	public List<DoctorDto> DoctorList() {
         List<Doctor> doctorList = DaoFactory.getFactory().getDoctorDao().findAll();
         List<DoctorDto> doctorDtoList = new ArrayList<>();
         for (Doctor theme : doctorList) {
@@ -23,5 +25,20 @@ public class DoctorController {
         }
         return doctorDtoList;
 	}
+
+	public Optional<DoctorDto> readTheme(Integer id) {
+        if (existDoctorId(id)) {
+            return Optional.of(new DoctorDto(DaoFactory.getFactory().getDoctorDao().read(id)));
+        } else {
+            return Optional.empty();
+        }
+	}
+	
+
+	private boolean existDoctorId(Integer id) {
+		 return DaoFactory.getFactory().getDoctorDao().read(id) != null;
+	}
+
+
 
 }
