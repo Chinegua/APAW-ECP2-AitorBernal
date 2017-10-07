@@ -18,6 +18,7 @@ public class DoctorResource {
 	public static final String DOCTORS = "doctors";
     public static final String ID = "/{id}";
     public static final String ID_SPECIALITY = DOCTORS + ID + "/speciality";
+    public static final String APPOINTMEN = "/appointmens";
 
 
 	public void createDoctor(Integer id, String speciality)
