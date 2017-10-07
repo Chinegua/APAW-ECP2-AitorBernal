@@ -2,16 +2,23 @@ package apiDoctor.api.resource;
 
 import java.util.List;
 
+import java.util.Optional;
+
 import apiDoctor.Doctor;
 import apiDoctor.api.controller.DoctorController;
 import apiDoctor.api.dtos.DoctorDto;
 import apiDoctor.api.resource.exceptions.DoctorIdInvalidException;
+import apiDoctor.api.resource.exceptions.DoctorIdNotFoundException;
 import apiDoctor.api.resource.exceptions.DoctorSpecilityInvalidException;
+
 
 
 public class DoctorResource {
 
 	public static final String DOCTORS = "doctors";
+    public static final String ID = "/{id}";
+    public static final String ID_SPECIALITY = DOCTORS + ID + "/speciality";
+
 
 	public void createDoctor(Integer id, String speciality)
 			throws DoctorIdInvalidException, DoctorSpecilityInvalidException {
@@ -23,7 +30,14 @@ public class DoctorResource {
 	}
     public static List<DoctorDto> DoctorList() {
     	
-        return new DoctorController().themeList();
+        return new DoctorController().DoctorList();
+    }
+    
+
+    
+    public static DoctorDto doctorSpeciality(Integer id) throws DoctorIdNotFoundException{
+    	Optional<DoctorDto> optional = new DoctorController().readTheme(id);
+        return optional.orElseThrow(() -> new DoctorIdNotFoundException(Integer.toString(id)));
     }
     
     
