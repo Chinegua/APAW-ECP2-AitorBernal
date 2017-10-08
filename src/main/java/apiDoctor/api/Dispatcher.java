@@ -1,6 +1,5 @@
 package apiDoctor.api;
 
-import java.util.Arrays;
 import java.util.Calendar;
 
 import apiDoctor.api.resource.AppointmenResource;
@@ -59,10 +58,6 @@ public class Dispatcher {
 
 	}
 
-	public void doPut(HttpRequest request, HttpResponse response) {
-		System.out.print(">>>");
-	}
-
 	public void doGet(HttpRequest request, HttpResponse response) {
 		try {
 
@@ -94,12 +89,5 @@ public class Dispatcher {
 		}
 	}
 
-	public void doPatch(HttpRequest request, HttpResponse response) {
-		System.out.print(">>>");
-	}
-
-	public void doDelete(HttpRequest request, HttpResponse response) {
-		System.out.print(">>>");
-	}
 
 }

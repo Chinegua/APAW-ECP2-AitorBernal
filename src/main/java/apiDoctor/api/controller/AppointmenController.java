@@ -30,8 +30,6 @@ public class AppointmenController {
         if (existAppointmenId(id)) {
             return Optional.of(new AppointmenDto(DaoFactory.getFactory().getAppointmenDao().read(id)));
         } else {
-    		System.out.println("Hola");
-
             return Optional.empty();
         }
 
