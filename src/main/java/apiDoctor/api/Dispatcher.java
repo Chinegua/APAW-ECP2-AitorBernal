@@ -36,13 +36,11 @@ public class Dispatcher {
 				String paciente = request.getBody().split(":")[1];
 				String fecha = request.getBody().split(":")[2];
 				String[] parts = fecha.split("-");
-				System.out.println(Arrays.toString(parts));
 
-				int day = Integer.valueOf(parts[0]);
-				int month = Integer.valueOf(parts[1]);
-				int year = Integer.valueOf(parts[2]);
+				int day = Integer.parseInt(parts[0]);
+				int month = Integer.parseInt(parts[1]);
+				int year = Integer.parseInt(parts[2]);
 				Calendar calendar = Calendar.getInstance();
-				System.out.println(day);
 
 				calendar.set(year,month,day);
 				appointmenResource.createAppointmen(Integer.valueOf(id), paciente, calendar);
