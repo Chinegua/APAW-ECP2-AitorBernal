@@ -41,6 +41,7 @@ public class DoctorDto {
     public String toString() {
         return "{\"id\":" + this.id + ",\"speciality\":\"" + this.speciality + "\",\"cost\":\"" + this.cost +"\"}";
     }
+
     
 
 }
