@@ -3,10 +3,12 @@ package apiDoctor.api.controller;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.List;
+import java.util.Optional;
 
 import apiDoctor.Appointmen;
 import apiDoctor.api.daos.DaoFactory;
 import apiDoctor.api.dtos.AppointmenDto;
+import apiDoctor.api.dtos.DoctorDto;
 
 public class AppointmenController {
 
@@ -21,6 +23,18 @@ public class AppointmenController {
         	appointmenDtoList.add(new AppointmenDto(appointmen));
         }
         return appointmenDtoList;
+	}
+
+	public Optional<AppointmenDto> readTheme(Integer id) {
+        if (existAppointmenId(id)) {
+            return Optional.of(new AppointmenDto(DaoFactory.getFactory().getAppointmenDao().read(id)));
+        } else {
+            return Optional.empty();
+        }
+	}
+
+	private boolean existAppointmenId(Integer id) {
+		 return DaoFactory.getFactory().getAppointmenDao().read(id) != null;
 	}
 
 }

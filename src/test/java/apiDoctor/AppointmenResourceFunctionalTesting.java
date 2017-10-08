@@ -8,7 +8,6 @@ import org.junit.Test;
 import apiDoctor.api.daos.DaoFactory;
 import apiDoctor.api.daos.memory.DaoFactoryMemory;
 import apiDoctor.api.resource.AppointmenResource;
-import apiDoctor.api.resource.DoctorResource;
 import apiDoctor.http.HttpClientService;
 import apiDoctor.http.HttpMethod;
 import apiDoctor.http.HttpRequest;
@@ -37,5 +36,14 @@ public class AppointmenResourceFunctionalTesting {
         HttpRequest request = new HttpRequestBuilder().method(HttpMethod.GET).path(AppointmenResource.APPOINTMEN).build();
         System.out.println(new HttpClientService().httpRequest(request).getBody());
         assertEquals("[{\"id\":\"1,\"patient\":\"Juan Perez\",\"calendar\":30-10-1995}]",new HttpClientService().httpRequest(request).getBody());
+    }
+    
+    @Test
+    public void testGetCalendar(){
+    	this.createAppointmen();
+
+        HttpRequest request = new HttpRequestBuilder().method(HttpMethod.GET).path(AppointmenResource.APPOINTMEN).path(AppointmenResource.ID_CALENDAR).expandPath("1").build();
+        System.out.println(new HttpClientService().httpRequest(request).getBody());
+        assertEquals("{\"date\":\"30-10-1995}",new HttpClientService().httpRequest(request).getBody());
     }
 }

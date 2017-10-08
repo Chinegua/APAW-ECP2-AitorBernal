@@ -44,6 +44,13 @@ public class AppointmenDto {
 	public Calendar getCalendar() {
 		return this.calendar;
 	}
+	
+    public String toCalendar(){
+    	int day = this.calendar.get(Calendar.DAY_OF_MONTH);
+    	int month = this.calendar.get(Calendar.MONTH);
+    	int year = this.calendar.get(Calendar.YEAR);
+        return "{\"date\":\"" + day+"-"+month+"-"+year +"}";
+    }
 
 	@Override
 	public String toString() {
