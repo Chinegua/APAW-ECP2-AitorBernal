@@ -26,9 +26,5 @@ public class DoctorControllerTest {
 	}
 
 
-	@Test
-	public void testReadTheme() {
-		fail("Not yet implemented");
-	}
 
 }
