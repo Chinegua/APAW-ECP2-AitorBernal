@@ -11,12 +11,12 @@ import apiDoctor.api.dtos.AppointmenDto;
 
 public class AppointmenController {
 
-	public void createAppointmen(Integer id, String paciente, Calendar calendar) {
+	public static void createAppointmen(Integer id, String paciente, Calendar calendar) {
 		DaoFactory.getFactory().getAppointmenDao().create(new Appointmen(id,paciente,calendar));	
 
 	}
 
-	public List<AppointmenDto> AppointmenList() {
+	public static List<AppointmenDto> AppointmenList() {
         List<Appointmen> appointmenList = DaoFactory.getFactory().getAppointmenDao().findAll();
         List<AppointmenDto> appointmenDtoList = new ArrayList<>();
         for (Appointmen appointmen : appointmenList) {
@@ -25,7 +25,7 @@ public class AppointmenController {
         return appointmenDtoList;
 	}
 
-	public Optional<AppointmenDto> readTheme(Integer id) {
+	public static Optional<AppointmenDto> readTheme(Integer id) {
 
         if (existAppointmenId(id)) {
             return Optional.of(new AppointmenDto(DaoFactory.getFactory().getAppointmenDao().read(id)));
@@ -35,7 +35,7 @@ public class AppointmenController {
 
 	}
 
-	private boolean existAppointmenId(Integer id) {
+	private static boolean existAppointmenId(Integer id) {
 		 return DaoFactory.getFactory().getAppointmenDao().read(id) != null;
 	}
 

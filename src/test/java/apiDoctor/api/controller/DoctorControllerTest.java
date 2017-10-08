@@ -24,6 +24,11 @@ public class DoctorControllerTest {
         assertEquals(2, DoctorController.DoctorList().size());
         assertEquals("Cabecera", DoctorController.DoctorList().get(0).getSpeciality());
 	}
+	@Test
+	public void testReadTheme(){
+		DoctorController.createDoctor(1,"Cabecera");
+		assertEquals("Cabecera",DoctorController.readTheme(1).get().getSpeciality());
+	}
 
 
 
