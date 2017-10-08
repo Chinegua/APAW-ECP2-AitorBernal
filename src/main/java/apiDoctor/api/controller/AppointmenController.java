@@ -8,15 +8,15 @@ import java.util.Optional;
 import apiDoctor.Appointmen;
 import apiDoctor.api.daos.DaoFactory;
 import apiDoctor.api.dtos.AppointmenDto;
-import apiDoctor.api.dtos.DoctorDto;
 
 public class AppointmenController {
 
 	public void createAppointmen(Integer id, String paciente, Calendar calendar) {
 		DaoFactory.getFactory().getAppointmenDao().create(new Appointmen(id,paciente,calendar));	
+
 	}
 
-	public Object AppointmenList() {
+	public List<AppointmenDto> AppointmenList() {
         List<Appointmen> appointmenList = DaoFactory.getFactory().getAppointmenDao().findAll();
         List<AppointmenDto> appointmenDtoList = new ArrayList<>();
         for (Appointmen appointmen : appointmenList) {
@@ -26,11 +26,15 @@ public class AppointmenController {
 	}
 
 	public Optional<AppointmenDto> readTheme(Integer id) {
+
         if (existAppointmenId(id)) {
             return Optional.of(new AppointmenDto(DaoFactory.getFactory().getAppointmenDao().read(id)));
         } else {
+    		System.out.println("Hola");
+
             return Optional.empty();
         }
+
 	}
 
 	private boolean existAppointmenId(Integer id) {

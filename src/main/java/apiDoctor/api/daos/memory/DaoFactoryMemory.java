@@ -24,6 +24,7 @@ public class DaoFactoryMemory extends DaoFactory {
 
     @Override
     public AppointmenDao getAppointmenDao() {
+
         if (appointmenDao == null) {
         	appointmenDao = new AppointmenDaoMemory();
         }
