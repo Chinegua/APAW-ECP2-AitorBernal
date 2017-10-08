@@ -55,6 +55,7 @@ public class AppointmenTest {
 		calendar2.set(2004, 1, 7);
 		assertEquals(calendar2, appointmen.getCalendar());
 
+		
 	}
 
 
