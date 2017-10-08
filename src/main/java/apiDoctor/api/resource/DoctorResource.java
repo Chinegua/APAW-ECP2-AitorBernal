@@ -4,7 +4,6 @@ import java.util.List;
 
 import java.util.Optional;
 
-import apiDoctor.Doctor;
 import apiDoctor.api.controller.DoctorController;
 import apiDoctor.api.dtos.DoctorDto;
 import apiDoctor.api.resource.exceptions.DoctorIdInvalidException;

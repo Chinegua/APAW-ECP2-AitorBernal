@@ -67,12 +67,17 @@ public class Dispatcher {
 
 	public void doGet(HttpRequest request, HttpResponse response) {
 		try {
+			System.out.println("Holaaa");
+
 			if (request.isEqualsPath(DoctorResource.DOCTORS)) {
 				response.setBody(DoctorResource.DoctorList().toString());
 			} else if (request.isEqualsPath(DoctorResource.DOCTORS + DoctorResource.ID_SPECIALITY)) {
 				System.out.println(DoctorResource.doctorSpeciality(Integer.valueOf(request.paths()[1])).toSpeciality());
 
-			} else {
+			}else if(request.isEqualsPath(AppointmenResource.APPOINTMEN)){
+				response.setBody(AppointmenResource.AppointmenList().toString());
+			}
+			else {
 
 				throw new RequestInvalidException(request.getPath());
 

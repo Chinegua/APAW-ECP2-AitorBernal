@@ -2,8 +2,8 @@ package apiDoctor.api.resource;
 
 import java.util.Calendar;
 
+
 import apiDoctor.api.controller.AppointmenController;
-import apiDoctor.api.controller.DoctorController;
 import apiDoctor.api.resource.exceptions.AppointmenIdInvalidException;
 import apiDoctor.api.resource.exceptions.AppointmenPatientInvalidException;
 
@@ -30,6 +30,10 @@ public class AppointmenResource {
 		if (patient == null || patient.isEmpty()) {
 			throw new AppointmenPatientInvalidException(patient);
 		}
+	}
+
+	public static Object AppointmenList() {
+		return new AppointmenController().AppointmenList();
 	}
 
 }
