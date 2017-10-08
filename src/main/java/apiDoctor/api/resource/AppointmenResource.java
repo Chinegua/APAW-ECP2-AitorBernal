@@ -4,9 +4,7 @@ import java.util.Calendar;
 import java.util.Optional;
 
 import apiDoctor.api.controller.AppointmenController;
-import apiDoctor.api.controller.DoctorController;
 import apiDoctor.api.dtos.AppointmenDto;
-import apiDoctor.api.dtos.DoctorDto;
 import apiDoctor.api.resource.exceptions.AppointmenIdInvalidException;
 import apiDoctor.api.resource.exceptions.AppointmenIdNotFoundException;
 import apiDoctor.api.resource.exceptions.AppointmenPatientInvalidException;
