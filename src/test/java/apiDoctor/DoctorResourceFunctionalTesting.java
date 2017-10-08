@@ -21,7 +21,7 @@ public class DoctorResourceFunctionalTesting {
 		DaoFactory.setFactory(new DaoFactoryMemory());
 	}
     private void createDoctor() {
-        HttpRequest request = new HttpRequestBuilder().method(HttpMethod.POST).path(DoctorResource.DOCTORS).body("\"Medico de cabecera\"").build();
+        HttpRequest request = new HttpRequestBuilder().method(HttpMethod.POST).path(DoctorResource.DOCTORS).body("1:\"Medico de cabecera\"").build();
         new HttpClientService().httpRequest(request);
     }
     
