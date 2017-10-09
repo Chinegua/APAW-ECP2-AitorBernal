@@ -13,7 +13,6 @@ public class AppointmenTest {
 
 	public Appointmen appointmen;
 
-
 	@Before
 	public void Before() {
 		calendar.set(2004, 1, 7);
@@ -56,7 +55,6 @@ public class AppointmenTest {
 		assertEquals(calendar2, appointmen.getCalendar());
 
 	}
-
 
 	@Test
 	public void testSetCalendar() {

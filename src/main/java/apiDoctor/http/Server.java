@@ -1,5 +1,7 @@
 package apiDoctor.http;
 
+import apiDoctor.api.Dispatcher;
+
 public class Server {
     private Dispatcher dispatcher = new Dispatcher();
 
@@ -11,15 +13,6 @@ public class Server {
             break;
         case GET:
             dispatcher.doGet(request, response);
-            break;
-        case PUT:
-            dispatcher.doPut(request, response);
-            break;
-        case PATCH:
-            dispatcher.doPatch(request, response);
-            break;
-        case DELETE:
-            dispatcher.doDelete(request, response);
             break;
         default:
         }
